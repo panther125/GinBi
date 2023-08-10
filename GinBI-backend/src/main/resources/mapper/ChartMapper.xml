@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和对应接口的全类名保持一致 -->
+<mapper namespace="com.panther.smartBI.mapper.ChartMapper">
+
+    <resultMap id="BaseResultMap" type="com.panther.smartBI.model.entity.Chart">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="goal" column="goal" jdbcType="VARCHAR"/>
+        <result property="name" column="chartName" jdbcType="VARCHAR"/>
+        <result property="chartData" column="chartData" jdbcType="VARCHAR"/>
+        <result property="chartType" column="chartType" jdbcType="VARCHAR"/>
+        <result property="genChart" column="genChart" jdbcType="VARCHAR"/>
+        <result property="genResult" column="genResult" jdbcType="VARCHAR"/>
+        <result property="userId" column="userId" jdbcType="BIGINT"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,goal,chartName,chartData,
+        chartType,genChart,genResult,
+        userId,createTime,updateTime,
+        isDelete
+    </sql>
+
+    <select id="getFailedChart" resultType="Long">
+        select id from chart where status in (-1 , 2) and isDelete = 0;
+    </select>
+
+</mapper>

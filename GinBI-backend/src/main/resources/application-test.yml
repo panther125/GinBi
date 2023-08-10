@@ -1,0 +1,17 @@
+# 测试配置文件
+server:
+  port: 8101
+spring:
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/my_db
+    username: root
+    password: 123456
+  # Redis 配置
+
+  # Elasticsearch 配置
+  elasticsearch:
+    uris: http://localhost:9200
+    username: root
+    password: 123456
